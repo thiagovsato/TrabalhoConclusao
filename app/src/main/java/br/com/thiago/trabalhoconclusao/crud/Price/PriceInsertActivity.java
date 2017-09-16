@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.math.BigDecimal;
+
 import br.com.thiago.trabalhoconclusao.R;
 import br.com.thiago.trabalhoconclusao.db.PriceDAO;
 import br.com.thiago.trabalhoconclusao.db.ProductDAO;
@@ -44,8 +46,10 @@ public class PriceInsertActivity extends AppCompatActivity{
         _product_Id = intent.getIntExtra("product_Id", 0);
         _store_Id = intent.getIntExtra("store_Id", 0);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabPriceInsertAdd);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -90,63 +94,65 @@ public class PriceInsertActivity extends AppCompatActivity{
     }
 
     public void addNewPrice(View view){
-
-        PriceDAO priceDAO = new PriceDAO(this);
-        Price price = new Price();
-        ProductDAO productDAO = new ProductDAO(this);
-        StoreDAO storeDAO = new StoreDAO(this);
-
-        if (!productDAO.doesProductExistByName(etProduct.getText().toString()))
-        {
-            Product product = new Product();
-            product.setName(etProduct.getText().toString());
-            product.setDescription("");
-            product.setImage_url("");
-            product.setProduct_Id(0);
-
-            productDAO.insert(product);
-        }
-
-        price.setProduct_id(
-                productDAO.getProductByName(etProduct.getText().toString()).getProduct_Id());
-
-        if (!storeDAO.doesStoreExistByName(etStore.getText().toString()))
-        {
-            Store store = new Store();
-            store.setName(etStore.getText().toString());
-            store.setDescription("");
-            store.setImage_url("");
-            store.setStore_Id(0);
-
-            storeDAO.insert(store);
-        }
-
-        price.setStore_id(
-                storeDAO.getStoreByName(etStore.getText().toString()).getStore_Id());
-
-        if (etPrice.getText().toString().isEmpty()
-                || etPrice.getText().toString().equals(".")
-                || etPrice.getText().toString().equals(","))
-        {
-            valuePrice = 0;
-        } else {
-            valuePrice = (int)
-                    (100 * (Double.parseDouble(
-                            etPrice.getText().toString()
-                    )));
-        }
-
-        price.setPrice(valuePrice);
-        price.setPrice_Id(_price_Id);
-
-        if (priceDAO.insert(price)) {
-            Snackbar.make(view, getString(R.string.insert_success), Snackbar.LENGTH_LONG)
-                    //.setAction("Undo", null)
+        String stprice = etPrice.getText().toString().replace(",",".");
+        double checkvalue = Double.parseDouble(stprice);
+        if (checkvalue > 21474836){
+            Snackbar.make(view, getString(R.string.error_price_number_too_high), Snackbar.LENGTH_LONG)
                     .show();
         } else {
-            Snackbar.make(view, getString(R.string.insert_error), Snackbar.LENGTH_LONG)
-                    .show();
+            PriceDAO priceDAO = new PriceDAO(this);
+            Price price = new Price();
+            ProductDAO productDAO = new ProductDAO(this);
+            StoreDAO storeDAO = new StoreDAO(this);
 
+            if (!productDAO.doesProductExistByName(etProduct.getText().toString())) {
+                Product product = new Product();
+                product.setName(etProduct.getText().toString());
+                product.setDescription("");
+                product.setImage_url("");
+                product.setProduct_Id(0);
+
+                productDAO.insert(product);
+            }
+
+            price.setProduct_id(
+                    productDAO.getProductByName(etProduct.getText().toString()).getProduct_Id());
+
+            if (!storeDAO.doesStoreExistByName(etStore.getText().toString())) {
+                Store store = new Store();
+                store.setName(etStore.getText().toString());
+                store.setDescription("");
+                store.setImage_url("");
+                store.setStore_Id(0);
+
+                storeDAO.insert(store);
+            }
+
+            price.setStore_id(
+                    storeDAO.getStoreByName(etStore.getText().toString()).getStore_Id());
+
+            if (etPrice.getText().toString().isEmpty()
+                    || etPrice.getText().toString().equals(".")
+                    || etPrice.getText().toString().equals(",")) {
+                valuePrice = 0;
+            } else {
+                BigDecimal bigprice = new BigDecimal(stprice);
+                bigprice = bigprice.multiply(BigDecimal.valueOf(100));
+                valuePrice = bigprice.toBigInteger().intValue();
+            }
+
+            price.setPrice(valuePrice);
+            price.setPrice_Id(_price_Id);
+
+            if (priceDAO.insert(price)) {
+                Snackbar.make(view, getString(R.string.insert_success), Snackbar.LENGTH_LONG)
+                        //.setAction("Undo", null)
+                        .show();
+            } else {
+                Snackbar.make(view, getString(R.string.insert_error), Snackbar.LENGTH_LONG)
+                        .show();
+
+            }
         }
     }
 

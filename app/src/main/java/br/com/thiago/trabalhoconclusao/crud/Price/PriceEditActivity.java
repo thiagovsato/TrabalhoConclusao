@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 import br.com.thiago.trabalhoconclusao.R;
@@ -63,8 +64,10 @@ public class PriceEditActivity extends AppCompatActivity{
         tvPriceEditProduct.setText(productName);
         tvPriceEditStore.setText(storeName);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         FloatingActionButton fabSave = (FloatingActionButton) findViewById(R.id.fabPriceEditConfirm);
         fabSave.setOnClickListener(new View.OnClickListener() {
@@ -84,31 +87,37 @@ public class PriceEditActivity extends AppCompatActivity{
     }
 
     public void savePrice(View view) {
-        PriceDAO dao = new PriceDAO(this);
-        Price oldPrice = dao.getPriceByID(_price_Id);
-        Price price = new Price();
-
-
-        if (etPriceEditPrice.getText().toString().isEmpty() ||
-                etPriceEditPrice.getText().toString().equals(".") ||
-                etPriceEditPrice.getText().toString().equals(","))
+        String stprice = etPriceEditPrice.getText().toString().replace(",",".");
+        double checkvalue = Double.parseDouble(stprice);
+        if (checkvalue > 21474836)
         {
-            valuePrice = 0;
+            Toast.makeText(this, getString(R.string.error_price_number_too_high), Toast.LENGTH_LONG).show();
         } else {
-            valuePrice = (int)
-                    (100*(Double.parseDouble(
-                            etPriceEditPrice.getText().toString()
-                    )));
+            PriceDAO dao = new PriceDAO(this);
+            Price oldPrice = dao.getPriceByID(_price_Id);
+            Price price = new Price();
+
+
+            if (etPriceEditPrice.getText().toString().isEmpty() ||
+                    etPriceEditPrice.getText().toString().equals(".") ||
+                    etPriceEditPrice.getText().toString().equals(","))
+            {
+                valuePrice = 0;
+            } else {
+                BigDecimal bigprice = new BigDecimal(stprice);
+                bigprice=bigprice.multiply(BigDecimal.valueOf(100));
+                valuePrice = bigprice.toBigInteger().intValue();
+            }
+
+            price.setPrice_Id(_price_Id);
+            price.setPrice(valuePrice);
+            price.setProduct_id(oldPrice.getProduct_id());
+            price.setStore_id(oldPrice.getStore_id());
+            dao.update(price);
+
+            Toast.makeText(this, getString(R.string.edit_saved), Toast.LENGTH_LONG).show();
+            close();
         }
-
-        price.setPrice_Id(_price_Id);
-        price.setPrice(valuePrice);
-        price.setProduct_id(oldPrice.getProduct_id());
-        price.setStore_id(oldPrice.getStore_id());
-        dao.update(price);
-
-        Toast.makeText(this, getString(R.string.edit_saved), Toast.LENGTH_LONG).show();
-        close();
     }
 
     public void alertDialog(final View view){
