@@ -56,11 +56,11 @@ public class HomeFragment extends Fragment {
                     mProfileTracker = new ProfileTracker() {
                         @Override
                         protected void onCurrentProfileChanged(Profile profile, Profile profile2) {
-                            tvHomeHello.setText(getString(R.string.hello) + " " + profile2.getName());
+                            tvHomeHello.setText(getString(R.string.hello) + ", " + profile2.getName());
                             mProfileTracker.stopTracking();
                         }};}
             } else if (extras.containsKey("Normal_login")){
-                name = name+ intent.getStringExtra("Normal_login");
+                name = name + intent.getStringExtra("Normal_login");
                 tvHomeHello.setText(name);
             }
         }
