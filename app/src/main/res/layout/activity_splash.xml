@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context="br.com.thiago.trabalhoconclusao.SplashActivity">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/splash_iv_width"
+        android:layout_height="@dimen/splash_iv_height"
+        android:contentDescription="@string/app_logo"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/ivLogoSplash" />
+
+</RelativeLayout>

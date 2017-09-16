@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name" translatable="false">PricePad</string>
+    <string name="facebook_app_id" translatable="false">1928273137412359</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1928273137412359</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_about">About</string>
+    <string name="menu_products">Products</string>
+    <string name="menu_stores">Stores</string>
+    <string name="menu_prices">Prices</string>
+    <string name="menu_register">Register</string>
+    <string name="menu_logout">Log Out</string>
+
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="stay_signed">Stay signed</string>
+
+    <string name="price">Price</string>
+    <string name="prices">Prices</string>
+    <string name="product">Product</string>
+    <string name="products">Products</string>
+    <string name="store">Store</string>
+    <string name="stores">Stores</string>
+    <string name="title_activity_maps">Maps</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="canceled">Canceled</string>
+    <string name="facebook_cancel">Facebook login canceled</string>
+    <string name="facebook_error">Facebook login error</string>
+    <string name="close">Close</string>
+    <string name="closed">Closed</string>
+    <string name="error">Error</string>
+    <string name="description">Description</string>
+    <string name="invalid_login">Invalid login</string>
+    <string name="image_url">Image URL</string>
+    <string name="delete">Delete</string>
+    <string name="exit_application">Exit application?</string>
+    <string name="logout_confirmation">Do you want to logout?</string>
+
+    <string name="confirm_delete">Delete confirmation</string>
+    <string name="delete_message">Are you sure you want to delete?</string>
+
+    <string name="confirm_delete_product_price_exists">This product has prices assigned</string>
+    <string name="delete_product_price_exists_message">This will also delete all prices assigned to this product. Are you sure you want to delete?</string>
+
+    <string name="confirm_delete_store_price_exists">This store has prices assigned</string>
+    <string name="delete_store_price_exists_message">This will also delete all prices assigned to this store. Are you sure you want to delete?</string>
+
+    <string name="user">user</string>
+    <string name="hello">Hello</string>
+
+    <string name="developed_by_">Developed by Thiago Sato</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="insert_error">Error registering</string>
+    <string name="insert_success">Successfully registered</string>
+    <string name="product_deleted">Product deleted</string>
+    <string name="edit_saved">Successfully edited</string>
+    <string name="error_product_name_exists">A product with this name already exists</string>
+    <string name="error_store_name_exists">A store with this name already exists</string>
+    <string name="store_deleted">Store deleted</string>
+    <string name="price_deleted">Price deleted</string>
+
+    <string name="closeApp">Close</string>
+
+    <string name="fiap" translatable="false">FIAP</string>
+    <string name="version">Version: 1.0</string>
+    <string name="about_address">Address:</string>
+    <string name="about_adress2">Paulista Avenue, 1106 – 7th floor</string>
+    <string name="about_address3">Cerqueira César. São Paulo - SP - Brazil</string>
+    <string name="about_view_map">View Map</string>
+    <string name="about_phone">Phone: +55 11 3385–8010</string>
+    <string name="about_call">Call</string>
+    <string name="developer_email" translatable="false">thiagovsato@gmail.com</string>
+    <string name="add">Add</string>
+    <string name="edit_title">Edit</string>
+    <string name="insert_title">Register</string>
+    <string name="share_message">PricePad is awesome!</string>
+    <string name="share_using">Share using</string>
+    <string name="home_middle_message">This is your PricePad</string>
+    <string name="home_bottom_message">Use the menu to navigate</string>
+    <string name="menu_edit">Edit</string>
+    <string name="product_insert_title">Register product</string>
+    <string name="product_view_title">Products</string>
+    <string name="price_by_product_title">Product prices</string>
+    <string name="price_by_store_title">Store prices</string>
+    <string name="money">$</string>
+    <string name="product_edit_title">Product edit</string>
+    <string name="store_insert_title">Register store</string>
+    <string name="store_view_title">Stores</string>
+    <string name="store_edit_title">Store edit</string>
+    <string name="price_insert_title">Register price</string>
+    <string name="price_edit_title">Price edit</string>
+
+    <string name="error_product_name_empty">Product name can\'t be empty</string>
+    <string name="error_store_name_empty">Store name can\'t be empty</string>
+    <string name="store_insert_name_hint">Enter store name</string>
+    <string name="store_insert_description_hint">Enter a store description</string>
+    <string name="store_insert_imageurl_hint">Enter a store image URL</string>
+    <string name="edit_store_name_hint">Store name</string>
+    <string name="edit_store_description_hint">Store description</string>
+    <string name="edit_store_imageurl_hint">Store image URL</string>
+    <string name="product_insert_name_hint">Enter product name</string>
+    <string name="product_insert_description_hint">Enter a product description</string>
+    <string name="product_insert_imageurl_hint">Enter a product image URL</string>
+    <string name="edit_product_name_hint">Product name</string>
+    <string name="edit_product_description_hint">Product description</string>
+    <string name="edit_product_imageurl_hint">Product image URL</string>
+    <string name="insert_price_product">Enter product name</string>
+    <string name="insert_price_store">Enter store name</string>
+    <string name="insert_price_price">Enter price</string>
+    <string name="error_empty_username">Enter username</string>
+    <string name="error_empty_password">Enter password</string>
+    <string name="product_name">Product name</string>
+    <string name="product_description">Product description</string>
+    <string name="store_name">Store name</string>
+    <string name="store_description">Store description</string>
+    <string name="app_logo">App logo</string>
+    <string name="image_in_price_list">Image in price list</string>
+    <string name="delete_button">Delete button</string>
+    <string name="store_logo">Store logo</string>
+    <string name="edit_button">Edit button</string>
+    <string name="product_image">Product image</string>
+
+
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.thiago.trabalhoconclusao">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".MyCrashlytics"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                ]
+            </intent-filter>
+        </activity>
+
+        <service android:name=".firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".firebase.MyFirebaseInstaceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="56faa371d5ae46fb545d14b24a36c0460f510da1" />
+
+        <activity
+            android:name=".crud.Product.ProductInsertActivity"
+            android:label="@string/product_insert_title" />
+        <activity
+            android:name=".crud.Product.ProductViewActivity"
+            android:label="@string/product_view_title" />
+        <activity
+            android:name=".crud.Product.ProductEditActivity"
+            android:label="@string/product_edit_title" />
+        <activity
+            android:name=".crud.Store.StoreInsertActivity"
+            android:label="@string/store_insert_title" />
+        <activity
+            android:name=".crud.Store.StoreViewActivity"
+            android:label="@string/store_view_title" />
+        <activity
+            android:name=".crud.Store.StoreEditActivity"
+            android:label="@string/store_edit_title" />
+        <activity
+            android:name=".crud.Price.PriceInsertActivity"
+            android:label="@string/price_insert_title" />
+        <activity
+            android:name=".crud.Price.PriceByProductViewActivity"
+            android:label="@string/price_by_product_title" />
+        <activity
+            android:name=".crud.Price.PriceByStoreViewActivity"
+            android:label="@string/price_by_store_title" />
+        <activity
+            android:name=".crud.Price.PriceEditActivity"
+            android:label="@string/price_edit_title" />
+
+
+    </application>
+
+</manifest>

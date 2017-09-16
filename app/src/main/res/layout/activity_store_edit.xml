@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.thiago.trabalhoconclusao.crud.Store.StoreEditActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/default_margin"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvEditTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_title"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilEditName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            android:layout_marginTop="@dimen/insert_edit_fields_margintop">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etEditName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/edit_store_name_hint"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilEditDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="false"
+            android:paddingBottom="@dimen/insert_edit_fields_margintop">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etEditDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/edit_store_description_hint"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilEditImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etEditImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/edit_store_imageurl_hint"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabStoreEditConfirm"
+        android:src="@drawable/ic_checkmark"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:rippleColor="@android:color/holo_blue_light"
+        android:layout_gravity="bottom|end"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabStoreEditDelete"
+        android:src="@drawable/ic_delete_white"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:rippleColor="@android:color/holo_blue_light"
+        android:layout_gravity="bottom|start"
+        />
+</android.support.design.widget.CoordinatorLayout>

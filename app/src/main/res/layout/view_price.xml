@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/card_view_padding_horizontal"
+    android:paddingRight="@dimen/card_view_padding_horizontal"
+    android:paddingTop="@dimen/view_price_padding_vertical"
+    android:paddingBottom="@dimen/card_view_padding_vertical">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/ivLogo"
+            android:contentDescription="@string/image_in_price_list"
+            android:layout_width="@dimen/card_view_image_size"
+            android:layout_height="@dimen/card_view_image_size"
+            tools:src="@mipmap/ic_launcher" />
+        <TableLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/card_view_textview_margin"
+            android:layout_toRightOf="@+id/ivLogo"
+            android:layout_toLeftOf="@+id/btDeletePrice"
+            android:shrinkColumns="0">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_weight="1"
+                    tools:text="Store" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/view_price_text_paddingRight"
+                    android:maxLines="1"
+                    android:ellipsize="none"
+                    tools:text="Price"
+                    android:textAlignment="gravity"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="end"/>
+            </TableRow>
+        </TableLayout>
+
+        <ImageButton
+            android:layout_centerVertical="true"
+            android:id="@+id/btDeletePrice"
+            android:contentDescription="@string/delete_button"
+            android:layout_width="@dimen/card_view_image_size"
+            android:layout_height="@dimen/card_view_image_size"
+            android:src="@drawable/ic_delete"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

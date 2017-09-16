@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.thiago.trabalhoconclusao.fragments.AboutFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/home_margin"
+        android:layout_marginLeft="@dimen/home_margin"
+        android:layout_marginRight="@dimen/home_margin">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHomeHello"
+            android:textSize="@dimen/home_text_size"
+            android:text="@string/hello"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHomeMiddle"
+            android:textSize="@dimen/home_text_size"
+            android:paddingTop="@dimen/default_margin"
+            android:text="@string/home_middle_message"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHomeBottom"
+            android:textSize="@dimen/home_text_size"
+            android:paddingTop="@dimen/default_margin"
+            android:text="@string/home_bottom_message"/>
+    </LinearLayout>
+</FrameLayout>

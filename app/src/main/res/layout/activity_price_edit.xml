@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.thiago.trabalhoconclusao.crud.Price.PriceInsertActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/default_margin">
+    <TextView
+        android:id="@+id/tvPriceEditTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_title"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tvPriceEditProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/product"
+        android:textSize="@dimen/price_edit_tv_size"
+        android:layout_below="@+id/tvPriceEditTitle"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/price_edit_paddingLeft"/>
+
+    <TextView
+        android:id="@+id/tvPriceEditStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/store"
+        android:textSize="@dimen/price_edit_tv_size"
+        android:layout_below="@+id/tvPriceEditProduct"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/price_edit_paddingLeft"/>
+
+    <EditText
+        android:id="@+id/etPriceEditPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="@string/insert_price_price"
+        android:layout_below="@+id/tvPriceEditStore"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+</RelativeLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabPriceEditConfirm"
+        android:src="@drawable/ic_checkmark"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:rippleColor="@android:color/holo_blue_light"
+        android:layout_gravity="bottom|end"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabPriceEditDelete"
+        android:src="@drawable/ic_delete_white"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:rippleColor="@android:color/holo_blue_light"
+        android:layout_gravity="bottom|start"
+        />
+</android.support.design.widget.CoordinatorLayout>
