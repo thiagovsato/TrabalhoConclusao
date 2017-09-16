@@ -105,4 +105,10 @@
     <string name="product_name">Nome do produto</string>
     <string name="store_description">Descrição da loja</string>
     <string name="store_name">Nome da loja</string>
+    <string name="app_logo">Logo do app</string>
+    <string name="delete_button">Botão de delete</string>
+    <string name="edit_button">Botão de editar</string>
+    <string name="image_in_price_list">Imagem na lista de preços</string>
+    <string name="product_image">Imagem do produto</string>
+    <string name="store_logo">Logo da loja</string>
 </resources>
