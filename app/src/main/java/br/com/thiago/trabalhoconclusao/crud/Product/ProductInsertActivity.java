@@ -33,8 +33,10 @@ public class ProductInsertActivity extends AppCompatActivity {
         tilInsertDescription = (TextInputLayout) findViewById(R.id.tilInsertDescription);
         tilInsertImage = (TextInputLayout) findViewById(R.id.tilInsertImage);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabProdInsertAdd);
         fab.setOnClickListener(new View.OnClickListener() {

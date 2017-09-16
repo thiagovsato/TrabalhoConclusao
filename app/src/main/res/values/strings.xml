@@ -66,6 +66,7 @@
     <string name="error_store_name_exists">A store with this name already exists</string>
     <string name="store_deleted">Store deleted</string>
     <string name="price_deleted">Price deleted</string>
+    <string name="error_price_number_too_high">Price value can\'t be higher than 21474836</string>
 
     <string name="closeApp">Close</string>
 

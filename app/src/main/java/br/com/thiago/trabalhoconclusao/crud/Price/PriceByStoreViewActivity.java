@@ -104,8 +104,10 @@ public class PriceByStoreViewActivity extends AppCompatActivity{
 //                LinearLayoutManager.VERTICAL);
 //        rvPrices.addItemDecoration(dividerItemDecoration);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
     }
 

@@ -50,8 +50,10 @@ public class ProductEditActivity extends AppCompatActivity{
         etEditDescription.setText(product.getDescription());
         etEditImage.setText(product.getImage_url());
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         FloatingActionButton fabSave = (FloatingActionButton) findViewById(R.id.fabProdEditConfirm);
         fabSave.setOnClickListener(new View.OnClickListener() {
