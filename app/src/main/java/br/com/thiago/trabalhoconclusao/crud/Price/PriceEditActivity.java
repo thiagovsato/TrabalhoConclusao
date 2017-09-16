@@ -87,37 +87,37 @@ public class PriceEditActivity extends AppCompatActivity{
     }
 
     public void savePrice(View view) {
-        String stprice = etPriceEditPrice.getText().toString().replace(",",".");
-        double checkvalue = Double.parseDouble(stprice);
-        if (checkvalue > 21474836)
+        if (etPriceEditPrice.getText().toString().isEmpty()
+                || etPriceEditPrice.getText().toString().equals(".")
+                || etPriceEditPrice.getText().toString().equals(",")
+                || etPriceEditPrice.getText().toString().equals("-"))
         {
-            Toast.makeText(this, getString(R.string.error_price_number_too_high), Toast.LENGTH_LONG).show();
+            valuePrice = 0;
         } else {
-            PriceDAO dao = new PriceDAO(this);
-            Price oldPrice = dao.getPriceByID(_price_Id);
-            Price price = new Price();
-
-
-            if (etPriceEditPrice.getText().toString().isEmpty() ||
-                    etPriceEditPrice.getText().toString().equals(".") ||
-                    etPriceEditPrice.getText().toString().equals(","))
-            {
-                valuePrice = 0;
+            String stprice = etPriceEditPrice.getText().toString().replace(",", ".");
+            double checkvalue = Double.parseDouble(stprice);
+            if (checkvalue > 21474836) {
+                Toast.makeText(this, getString(R.string.error_price_number_too_high), Toast.LENGTH_LONG).show();
+                return;
             } else {
                 BigDecimal bigprice = new BigDecimal(stprice);
-                bigprice=bigprice.multiply(BigDecimal.valueOf(100));
+                bigprice = bigprice.multiply(BigDecimal.valueOf(100));
                 valuePrice = bigprice.toBigInteger().intValue();
             }
-
-            price.setPrice_Id(_price_Id);
-            price.setPrice(valuePrice);
-            price.setProduct_id(oldPrice.getProduct_id());
-            price.setStore_id(oldPrice.getStore_id());
-            dao.update(price);
-
-            Toast.makeText(this, getString(R.string.edit_saved), Toast.LENGTH_LONG).show();
-            close();
         }
+
+        PriceDAO dao = new PriceDAO(this);
+        Price oldPrice = dao.getPriceByID(_price_Id);
+        Price price = new Price();
+
+        price.setPrice_Id(_price_Id);
+        price.setPrice(valuePrice);
+        price.setProduct_id(oldPrice.getProduct_id());
+        price.setStore_id(oldPrice.getStore_id());
+        dao.update(price);
+
+        Toast.makeText(this, getString(R.string.edit_saved), Toast.LENGTH_LONG).show();
+        close();
     }
 
     public void alertDialog(final View view){
